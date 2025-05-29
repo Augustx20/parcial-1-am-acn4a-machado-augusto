@@ -10,87 +10,91 @@
     tools:context=".MainActivity">
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/round_account_balance_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tint="@color/green_V4"
-        tools:ignore="MissingConstraints" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_notification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/new_message"
-        android:onClick="updateMessage"
-        android:src="@drawable/outline_arrow_upward_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/add_note"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toEndOf="@id/home"
-        app:tint="@color/green_V4" />
-
-
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/todo"
-        android:src="@drawable/baseline_note_add_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/green_V4"
-        tools:ignore="MissingConstraints" />
-
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="397dp"
-        android:layout_height="444dp"
-        android:orientation="vertical"
+        android:id="@+id/linearLayout2"
+        android:layout_width="199dp"
+        android:layout_height="69dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.237">
+        tools:ignore="MissingConstraints">
 
-        <TextView
-            android:id="@+id/myCalendar"
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/round_account_balance_24"
+            app:tint="@color/green_V4"
+            tools:ignore="MissingConstraints" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_notification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="@string/new_message"
+            android:onClick="updateMessage"
+            android:src="@drawable/outline_arrow_upward_24"
+            app:tint="@color/green_V4" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_note"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/spartan_black"
-            android:text="@string/my_calendar"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/black_V1" />
-
-        <CalendarView
-            android:id="@+id/calendarView_test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/myCalendar2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/spartan_black"
-            android:text="@string/hoy"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            android:textColor="@color/black_V1"
-            android:textSize="24sp" />
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:clickable="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/baseline_note_add_24"
+            app:tint="@color/green_V4"
+            tools:ignore="MissingConstraints" />
     </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/ViewerTask"
+        android:layout_width="412dp"
+        android:layout_height="640dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="1dp">
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/myCalendar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spartan_black"
+                android:text="@string/my_calendar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black_V1" />
+
+            <CalendarView
+                android:id="@+id/calendarView_test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/myCalendarTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/spartan_black"
+                android:text="@string/hoy"
+                android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                android:textColor="@color/black_V1"
+                android:textSize="24sp" />
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

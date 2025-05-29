@@ -19,9 +19,9 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
     }
-/*    public void updateMessage(View view){
+    public void updateMessage(View view){
         Log.i("test-Message","Actualizando campo de texto");
-        TextView welcomeMessage = findViewById(R.id.test);
+        TextView welcomeMessage = findViewById(R.id.add_note);
         welcomeMessage.setText(R.string.new_message);
-    }*/
+    }
 }

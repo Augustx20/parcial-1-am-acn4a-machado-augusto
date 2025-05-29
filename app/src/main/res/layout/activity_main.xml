@@ -5,12 +5,13 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Beige"
     android:visibility="visible"
     tools:context=".MainActivity">
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -24,6 +25,7 @@
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="88dp"
@@ -33,14 +35,14 @@
         android:contentDescription="@string/todo"
         android:src="@drawable/outline_arrow_upward_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/floatingActionButton2"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+        app:layout_constraintEnd_toStartOf="@id/add_note"
+        app:layout_constraintStart_toEndOf="@+id/home"
         app:tint="@color/green_V4"
         tools:ignore="MissingConstraints" />
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
+        android:id="@+id/add_note"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
@@ -66,34 +68,19 @@
         app:layout_constraintVertical_bias="0.237">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/myCalendar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/spartan_black"
-            android:text="My Calendar"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+            android:text="@string/my_calendar"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/black_V1" />
 
         <CalendarView
-            android:id="@+id/calendarView2"
+            android:id="@+id/calendarView_test"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="408dp"
-        android:layout_height="170dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        tools:ignore="UnknownId"
-        tools:layout_editor_absoluteX="1dp">
-
-        <TextView
-            android:id="@+id/test"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

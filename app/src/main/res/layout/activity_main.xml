@@ -28,17 +28,17 @@
         android:id="@+id/add_notification"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginEnd="88dp"
         android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:contentDescription="@string/todo"
+        android:contentDescription="@string/new_message"
+        android:onClick="updateMessage"
         android:src="@drawable/outline_arrow_upward_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/add_note"
-        app:layout_constraintStart_toEndOf="@+id/home"
-        app:tint="@color/green_V4"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toEndOf="@id/home"
+        app:tint="@color/green_V4" />
+
+
 
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -57,8 +57,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="409dp"
-        android:layout_height="392dp"
+        android:layout_width="397dp"
+        android:layout_height="444dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +79,17 @@
         <CalendarView
             android:id="@+id/calendarView_test"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/myCalendar2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/spartan_black"
+            android:text="@string/hoy"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textColor="@color/black_V1"
+            android:textSize="24sp" />
     </LinearLayout>
 
 

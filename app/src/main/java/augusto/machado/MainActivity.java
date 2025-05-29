@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
     public void updateMessage(View view){
-        Log.i("test-Message","Actualizando campo de texto");
-        TextView welcomeMessage = findViewById(R.id.add_note);
-        welcomeMessage.setText(R.string.new_message);
+        Toast.makeText(this, "Nueva Tarea", Toast.LENGTH_LONG).show();
     }
+
 }

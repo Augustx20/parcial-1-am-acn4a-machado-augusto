@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">parcial-1-am-acn4a-machado-augusto</string>
     <string name="new_message">New Message</string>
+    <string name="todo">TODO</string>
 </resources>

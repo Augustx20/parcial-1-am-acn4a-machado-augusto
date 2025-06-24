@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "866786650000",
+    "project_id": "agendaveterinaria2025",
+    "storage_bucket": "agendaveterinaria2025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:866786650000:android:2efc36a3ad348cccf9f515",
+        "android_client_info": {
+          "package_name": "augusto.machado"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNNoUcQPvpVHIfPI7kuTVYKNICAFn0kjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

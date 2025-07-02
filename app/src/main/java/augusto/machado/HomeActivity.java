@@ -52,6 +52,14 @@ public class HomeActivity extends AppCompatActivity {
         finish();
     }
 
+    public void cerrarSesion(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(HomeActivity.this, MainActivity.class); // O tu pantalla de login
+        startActivity(intent);
+        finish();
+    }
+
+
     public void crearCard(Context context, ViewGroup parentLayout) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();

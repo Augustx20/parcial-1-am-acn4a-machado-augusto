@@ -1,6 +1,6 @@
 package augusto.machado;
 
-import android.content.Context;
+import  android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -28,9 +28,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth mAuth;
+    FirebaseFirestore db;
     EditText usernameLogin,passwordLogin;
 
     @Override
@@ -42,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         this.mAuth = FirebaseAuth.getInstance();
+        this.db = FirebaseFirestore.getInstance();
 
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null){

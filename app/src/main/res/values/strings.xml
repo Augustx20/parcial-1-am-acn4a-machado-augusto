@@ -3,5 +3,5 @@
     <string name="new_message">nueva tarea</string>
     <string name="todo">TODO</string>
     <string name="my_calendar">My Calendar</string>
-    <string name="hoy">Hoy</string>
+    <string name="hoy">Mis tareas</string>
 </resources>

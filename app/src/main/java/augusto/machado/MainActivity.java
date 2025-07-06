@@ -57,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
     public void openActivity(View view) {
         String user,pass;
         usernameLogin = findViewById(R.id.usernameLogin);
-        user = usernameLogin.getText().toString();
-
+        user = usernameLogin.getText().toString().trim();
 
         passwordLogin = findViewById(R.id.passwordLogin);
-        pass = passwordLogin.getText().toString();
+        pass = passwordLogin.getText().toString().trim();
+
 
         this.mAuth.signInWithEmailAndPassword(
                 user,
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         ).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isComplete()){
+                if(task.isSuccessful()){
                     Log.i("firebase-Auth","inicio de sesion logueado con exito!");
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(intent);

@@ -2,8 +2,10 @@ package augusto.machado;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -195,6 +197,20 @@ public class TareasActivity extends AppCompatActivity {
                 })
                 .setNegativeButton("Cancelar", null)
                 .show();
+    }
+
+    public void cerrarSesion(View view) {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(TareasActivity.this, MainActivity.class); // O tu pantalla de login
+        startActivity(intent);
+        finish();
+    }
+
+    public void volverAlHome(View view) {
+        Intent intent = new Intent(TareasActivity.this, HomeActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+        finish();
     }
 
 }

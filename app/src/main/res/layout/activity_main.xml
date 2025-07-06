@@ -22,7 +22,7 @@
     <ScrollView
         android:id="@+id/ViewerTask"
         android:layout_width="412dp"
-        android:layout_height="640dp"
+        android:layout_height="660dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="1dp">
@@ -56,6 +56,14 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                 android:textColor="@color/black_V1"
                 android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="updateMessage"
+                android:text="nueva Tarea"
+                tools:ignore="OnClick" />
 
         </LinearLayout>
 

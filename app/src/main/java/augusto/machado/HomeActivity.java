@@ -30,6 +30,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,8 @@ public class HomeActivity extends AppCompatActivity {
 
         CalendarView calendarView = findViewById(R.id.calendarView_test);
         calendarView.setDate(System.currentTimeMillis(), false, true);
+
+
     }
 
     public void updateMessage(View view){
@@ -51,15 +54,12 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
     public void cerrarSesion(View view) {
         FirebaseAuth.getInstance().signOut();
         Intent intent = new Intent(HomeActivity.this, MainActivity.class); // O tu pantalla de login
         startActivity(intent);
         finish();
     }
-
-
     public void crearCard(Context context, ViewGroup parentLayout) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -274,5 +274,9 @@ public class HomeActivity extends AppCompatActivity {
                     Toast.makeText(context, "Error al enviar tarea", Toast.LENGTH_SHORT).show();
                 });
     }
+
+
+
+
 
 }

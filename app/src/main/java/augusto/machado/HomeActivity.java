@@ -164,9 +164,23 @@ public class HomeActivity extends AppCompatActivity {
         notas.setPadding(4, 8, 4, 8);
         columnaDerecha.addView(notas);
 
-        // Botón Enviar dentro de la columna derecha
         Button botonEnviar = new Button(context);
         botonEnviar.setText("Enviar Tarea");
+        botonEnviar.setTextColor(Color.WHITE); // texto blanco
+        botonEnviar.setTextSize(10);
+        botonEnviar.setTypeface(null, Typeface.BOLD);
+        botonEnviar.setPadding(16, 8, 16, 8); // Padding interno
+
+        // Fondo con bordes redondeados y color personalizado
+        botonEnviar.setBackground(ContextCompat.getDrawable(context, R.drawable.dr_button_enviar));
+
+        // Margen exterior
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.setMargins(0, 24, 0, 0);
+        botonEnviar.setLayoutParams(params);
         columnaDerecha.addView(botonEnviar);
 
         // Agregar columnas al card

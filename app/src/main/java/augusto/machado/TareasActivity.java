@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -57,7 +58,9 @@ public class TareasActivity extends AppCompatActivity {
                         LinearLayout card = new LinearLayout(this);
                         card.setOrientation(LinearLayout.VERTICAL);
                         card.setPadding(16, 16, 16, 16);
-                        card.setBackgroundColor(Color.parseColor("#EEEEEE"));
+                        card.setBackground(ContextCompat.getDrawable(this, R.drawable.rgb_shape));
+
+
 
                         LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                                 ViewGroup.LayoutParams.MATCH_PARENT,

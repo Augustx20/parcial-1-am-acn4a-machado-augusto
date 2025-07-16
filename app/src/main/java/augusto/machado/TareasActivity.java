@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -39,7 +41,9 @@ public class TareasActivity extends AppCompatActivity {
         cargarTareas();
     }
 
-    private void cargarTareas() {
+
+    public void cargarTareas() {
+        layoutTareas.removeAllViews(); // Limpiamos antes de cargar
         db.collection("users").document(uid).collection("tareas")
                 .get()
                 .addOnSuccessListener(queryDocumentSnapshots -> {
@@ -54,37 +58,49 @@ public class TareasActivity extends AppCompatActivity {
                         String peso = doc.getString("peso");
                         String altura = doc.getString("altura");
 
-                        // Crear el contenedor de la tarea
-                        LinearLayout card = new LinearLayout(this);
-                        card.setOrientation(LinearLayout.VERTICAL);
-                        card.setPadding(16, 16, 16, 16);
-                        card.setBackground(ContextCompat.getDrawable(this, R.drawable.rgb_shape));
+                        // Card mejorada
+                        CardView card = new CardView(this);
+                        card.setRadius(24f);
+                        card.setCardElevation(10f);
+                        card.setUseCompatPadding(true);
+                        card.setCardBackgroundColor(ContextCompat.getColor(this, R.color.Transparent));
 
-
+                        LinearLayout container = new LinearLayout(this);
+                        container.setOrientation(LinearLayout.VERTICAL);
+                        container.setPadding(32, 32, 32, 32);
+                        container.setBackground(ContextCompat.getDrawable(this, R.drawable.rgb_shape)); // Fondo personalizado
 
                         LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                                 ViewGroup.LayoutParams.MATCH_PARENT,
                                 ViewGroup.LayoutParams.WRAP_CONTENT
                         );
-                        cardParams.setMargins(0, 0, 0, 24);
+                        cardParams.setMargins(0, 0, 0, 36);
                         card.setLayoutParams(cardParams);
 
-                        TextView texto = new TextView(this);
-                        texto.setText(
-                                "Título: " + titulo + "\n" +
-                                        "Inicio: " + fechaInicio + "\n" +
+                        TextView titleView = new TextView(this);
+                        titleView.setText(titulo);
+                        titleView.setTextSize(20);
+                        titleView.setTypeface(Typeface.DEFAULT_BOLD);
+                        titleView.setTextColor(ContextCompat.getColor(this, R.color.Navy));
+                        titleView.setPadding(0, 0, 0, 16);
+
+                        TextView detallesView = new TextView(this);
+                        detallesView.setText(
+                                "Inicio: " + fechaInicio + "\n" +
                                         "Fin: " + fechaFin + "\n" +
                                         "Raza: " + raza + "\n" +
                                         "Años: " + anio + "\n" +
                                         "Peso: " + peso + "\n" +
                                         "Altura: " + altura
                         );
-                        texto.setTextSize(16);
+                        detallesView.setTextSize(16);
+                        detallesView.setTextColor(ContextCompat.getColor(this, R.color.black));
 
-                        card.addView(texto);
+                        container.addView(titleView);
+                        container.addView(detallesView);
+                        card.addView(container);
                         layoutTareas.addView(card);
 
-                        // Datos actuales de la tarea en un Map para pasarlos al diálogo
                         Map<String, Object> tareaActual = new HashMap<>();
                         tareaActual.put("titulo", titulo);
                         tareaActual.put("fechaInicio", fechaInicio);
@@ -94,7 +110,6 @@ public class TareasActivity extends AppCompatActivity {
                         tareaActual.put("peso", peso);
                         tareaActual.put("altura", altura);
 
-                        // Al hacer click, se muestra el diálogo de opciones
                         card.setOnClickListener(v -> {
                             new AlertDialog.Builder(this)
                                     .setTitle("Opciones")
@@ -126,12 +141,12 @@ public class TareasActivity extends AppCompatActivity {
                                     .show();
                         });
                     }
-
                 })
                 .addOnFailureListener(e -> {
                     Toast.makeText(this, "Error al cargar tareas", Toast.LENGTH_SHORT).show();
                 });
     }
+
     private void mostrarDialogoEditarTarea(Context context, String uid, String idTarea, Map<String, Object> tareaActual, Runnable onActualizado) {
 
         LinearLayout layout = new LinearLayout(context);

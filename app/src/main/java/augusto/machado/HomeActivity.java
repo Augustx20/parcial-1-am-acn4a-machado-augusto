@@ -68,7 +68,7 @@ public class HomeActivity extends AppCompatActivity {
         LinearLayout card = new LinearLayout(context);
         card.setOrientation(LinearLayout.HORIZONTAL);
         card.setPadding(16, 16, 16, 16);
-        card.setBackground(ContextCompat.getDrawable(context, R.drawable.rg_shape));
+        card.setBackground(ContextCompat.getDrawable(context, R.drawable.rgb_shape));
 
         LinearLayout.LayoutParams cardParams = new LinearLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,

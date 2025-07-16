@@ -10,4 +10,5 @@
     <color name="green_V3">#c1d6bf</color>
     <color name="green_V4">#90beab</color>
     <color name="black_V1">#515256</color>
+    <color name="Transparent">#00000000</color>
 </resources>
